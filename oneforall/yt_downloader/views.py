@@ -24,7 +24,6 @@ class Youtube():
                 stream.download()        
                 return render(request,'ytdownload.html')
             return render(request,'ytdownload.html')
-        \/\/\/\/\/\/\/
 
     def download_video():
         if request.method=="POST"
@@ -41,12 +40,16 @@ class Youtube():
                 stream.download()
                 return render(request,".html")
 '''
+
 def youtube_downloader(request):
     if request.method == "POST":
+
         link = request.POST['url_link']
         video = YouTube(link)
-        stream = video.streams.get_by_resolution
+
+        stream = video.streams.get_by_resolution()
+
         stream.download()
-        Video.objects.create()
+        
         return render(request,'ytdownload.html')
     return render(request,'ytdownload.html')

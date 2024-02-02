@@ -1,7 +1,14 @@
-{% extends 'core_app/base.html' %}
+{% extends 'core_app/templates/base.html' %}
 
 {% block content %}
-<h2>YT app</h2>
 
+<h2>Download Videos</h2>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="link">Enter the url</label>
+    <input type="text" id="link" name="link"><br><br> 
+    <input type="submit" value="Submit"> 
+</form>
 
 {% endblock %}

@@ -2,5 +2,5 @@ from django.urls import path
 from .import views
 
 urlpatterns = {
-    path('dwnl',views.youtube_downloader,name='dwnl'),
+    path('ytdownload/',views.youtube_downloader,name='yt-download'),
 }
