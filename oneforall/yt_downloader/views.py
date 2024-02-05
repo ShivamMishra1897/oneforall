@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from .models import Video
 from pytube import YouTube, Playlist
-# imoport re
-'''
+import re
+
 class Youtube():
 
     def check_for_playlist(request):
@@ -15,7 +15,7 @@ class Youtube():
                 break
         return render(request,'ytdownload.html')
 
-    def playlist():
+    def playlist(request):
         if request.method == "POST":
             link=""
             playlist = playlist(link)
@@ -25,8 +25,8 @@ class Youtube():
                 return render(request,'ytdownload.html')
             return render(request,'ytdownload.html')
 
-    def download_video():
-        if request.method=="POST"
+    def download_video(request):
+        if request.method=="POST":
             url=""
             if "playlist" in url:
                 pl = Playlist(url)
@@ -39,7 +39,6 @@ class Youtube():
                 stream=vi.streams.get_by_resolution
                 stream.download()
                 return render(request,".html")
-'''
 
 def youtube_downloader(request):
     if request.method == "POST":
@@ -48,7 +47,6 @@ def youtube_downloader(request):
         video = YouTube(link)
 
         stream = video.streams.get_by_resolution()
-
         stream.download()
         
         return render(request,'ytdownload.html')
